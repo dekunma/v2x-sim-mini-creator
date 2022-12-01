@@ -7,6 +7,7 @@ create:
 	python extract_lidarseg_meta_data_by_scene.py --scene=$(scene) --base_dir=$(base_dir)
 	python copy_other_meta_data.py --base_dir=$(base_dir)
 	python copy_data_by_scene.py --scene=$(scene) --base_dir=$(base_dir)
+	python copy_lidarseg_by_scene.py --scene=$(scene) --base_dir=$(base_dir)
 	cp -r $(base_dir)/maps ./
 
 clean:
