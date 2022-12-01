@@ -1,3 +1,4 @@
+import os
 import json
 import argparse
 
@@ -8,10 +9,19 @@ parser.add_argument(
     default=1,
     type=int,
 )
+parser.add_argument(
+    "--base_dir",
+    default="/scratch/dm4524/data/V2X-Sim-2",
+    type=str,
+    help="Path to V2X-Sim dataset"
+)
 args = parser.parse_args()
 
 current_scene = args.scene
-lidarseg_file = json.load(open('../V2X-Sim-2/v1.0-mini/lidarseg.json'))
+
+from_dir = os.path.join(args.base_dir, 'v1.0-mini', 'lidarseg.json')
+
+lidarseg_file = json.load(open(from_dir))
 lidarseg = []
 
 for ii in lidarseg_file:
